@@ -1,0 +1,78 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is a simple API",
+    "version" : "1.0.0",
+    "title" : "Simple Inventory API",
+    "contact" : {
+      "email" : "you@your-company.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags" : [ {
+    "name" : "nomenclature",
+    "description" : "Получить полный список товаров"
+  }, {
+    "name" : "categories",
+    "description" : "Получить полный список категорий"
+  } ],
+  "paths" : {
+    "/hs/ex" : {
+      "get" : {
+        "tags" : [ "nomenclature" ],
+        "summary" : "Пример пакета данных о номенклатуре",
+        "operationId" : "getnomenclature",
+        "description" : "Только пример\n",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "appid",
+          "description" : "для определения обработчика запроса",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/InventoryItem"
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "InventoryItem" : {
+      "type" : "object",
+      "required" : [ "id", "name", "fullname", "description", "tags", "s" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "Верстак"
+        },
+        "fullname" : {
+          "type" : "string",
+          "example" : "Верстак особый"
+        }
+      }
+    }
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/nkrylovbit/dikom_test_api/1.0.0",
+  "schemes" : [ "https", "http" ]
+}
