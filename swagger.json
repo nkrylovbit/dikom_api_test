@@ -40,7 +40,7 @@
             "schema" : {
               "type" : "array",
               "items" : {
-                "$ref" : "#/definitions/InventoryItem"
+                "$ref" : "#/definitions/nomenclatureItem"
               }
             }
           },
@@ -52,9 +52,9 @@
     }
   },
   "definitions" : {
-    "InventoryItem" : {
+    "nomenclatureItem" : {
       "type" : "object",
-      "required" : [ "id", "name", "fullname", "description", "tags", "s" ],
+      "required" : [ "id", "name" ],
       "properties" : {
         "id" : {
           "type" : "string",
